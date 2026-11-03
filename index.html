@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Για μένα – Θωμάς</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Θωμάς Δεμ....</h1>
+    <nav>
+      <!-- Κουμπί Dark mode -->
+      <button id="theme-toggle" class="button" type="button">🌙 Dark mode</button>
+      <!-- href για κάθε ενότητα -->
+      <a href="#hobbies">Τα χόμπι μου</a>
+      <a href="#goals">Οι στόχοι μου</a>
+      <a href="#teams">Πίνακας</a>
+      <a href="#cards">Αθλήματα</a>
+      <a href="#todo-list">To-do list</a>
+      <a href="#contact">Επικοινωνία</a>
+      <a href="#game">Μάντεψε τον αριθμό</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Λίγα λόγια για εμένα -->
+    <section id="hobbies">
+      <p>Γεια σας! Με λένε Θωμά και αγαπώ τον αθλητισμό. Παίζω ποδόσφαιρο και μπάσκετ
+         με τους φίλους μου και τρέχω όποτε βρω ευκαιρία. Παρακολουθώ επίσης
+         αγώνες Formula 1 και δεν χάνω ματς της αγαπημένης μου ομάδας.
+         Τώρα μαθαίνω HTML και CSS και φτιάχνω τη δική μου σελίδα!
+      </p>
+
+      <!-- Χόμπι -->
+      <h2>Τα χόμπι μου</h2>
+      <ul>
+        <li>Ποδόσφαιρο</li>
+        <li>Μπάσκετ</li>
+        <li>Τρέξιμο</li>
+      </ul>
+
+      <!-- Αγαπημένο website και εικόνα -->
+      <p><a href="https://www.gazzetta.gr/" target="_blank" rel="noopener noreferrer">Gazzetta</a></p>
+      <img src="formula1.png" alt="Σήμα της Formula 1">
+    </section>
+
+    <!-- Στόχοι -->
+    <section id="goals">
+      <h2>Οι στόχοι μου</h2>
+        <ul>
+          <li>Να ολοκληρώσω το πρώτο μου project σε HTML και CSS</li>
+          <li>Να μάθω JavaScript</li>
+          <li>Να βελτιώσω τον χρόνο μου στο τρέξιμο</li>
+        </ul>
+    </section>
+
+    <!-- Πίνακας -->
+    <section id="teams">
+      <h2>Πίνακας</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Άθλημα</th>
+            <th>Ομάδα</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Ποδόσφαιρο</th>
+            <td>Liverpool</td>
+          </tr>
+          <tr>
+            <th scope="row">Μπάσκετ</th>
+            <td>Ελλάδα</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Κάρτες -->
+    <section id="cards">
+      <h2>Αθλήματα</h2>
+      <form id="todo-cards">
+        <p>
+          <label for="todocards">Τίτλος Κάρτας</label>
+          <input type="text" id="todocards" name="todocards" placeholder="Γράψε έναν τίτλο" required>
+        </p>
+        <p>
+          <label for="todocards2">Περιεχόμενο Κάρτας</label>
+          <textarea id="todocards2" name="todocards2" placeholder="Γράψε κάτι σχετικό με τον τίτλο" required></textarea>
+          <button type="submit" class="button">Προσθήκη</button>
+        </p>
+      </form>
+      <div class="card-grid" id="card-grid"></div>
+      <div class="card-grid" id="user-card-grid"></div>
+      <p id="cardsMessage"></p>
+    </section>
+
+    <!-- To-do-list -->
+    <section id="todo-list">
+      <h2>To-do list</h2>
+      <form id="todo-form">
+        <p>
+          <label for="todo">Λίστα</label>
+          <input type="text" id="todo" name="todo" placeholder="Γράψε μια λίστα" required>
+          <button type="submit" class="button">Προσθήκη</button>
+        </p>
+        <ul id="list"></ul>
+        <button type="button" id="resetButton1" class="button">Διαγραφή</button>
+      </form>
+      <p id="message"></p>
+    </section>
+
+    <!-- Επικοινωνία -->
+    <section id="contact">
+      <h2>Επικοινωνία</h2>
+      <form id="name-form">
+        <p>
+          <label for="name">Όνομα</label>
+          <input type="text" id="name" name="name" placeholder="Γράψε το όνομά σου" required>
+        </p>
+        <button type="submit" class="button">Αποστολή</button>
+        <button type="button" id="resetButton" class="button">Ξέχνα με</button>
+      </form>
+      <p id="greeting"></p>
+    </section>
+
+    <!-- Παιχνίδι -->
+    <section id="game">
+      <h2>Μάντεψε τον αριθμό</h2>
+      <p>Σκέφτηκα έναν αριθμό από το 1 έως το 100. Μπορείς να τον βρεις;</p>
+      <form id="guess-form">
+        <label for="guess">Η εικασία σου</label>
+        <input type="number" id="guess" min="1" max="100" placeholder="0-100" required>
+        <button type="submit" id="tryIt" class="button">Δοκίμασε</button>
+        <button type="button" id="newGame" class="button">Νέο παιχνίδι</button>
+      </form>
+      <p id="best-score"></p>
+      <p id="game-message"></p>
+      <p id="attempts"></p>
+    </section>
+  </main>
+  <footer>
+    <p>© 2026 Θωμάς</p>
+  </footer>
+  <script src="script.js"></script>
+  <script src="script1.js"></script>
+  <script src="script2.js"></script>
+  <script src="script3.js"></script>
+</body>
+</html>
