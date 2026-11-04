@@ -86,12 +86,12 @@ nextButton.addEventListener("click", function () {
     nextButton.textContent = "Παίξε ξανά";
     quizOptions.innerHTML = "";
     quizMessage.textContent = "";
-    nextButton.addEventListener("click", function () {
-      quizQuestion.textContent = "";
-      currentQuestion = 0;
-      score = 0;
-      nextButton.textContent = "Επόμενο";
-    });
+  } else if (currentQuestion === questions.length + 1) {
+    quizQuestion.textContent = "";
+    currentQuestion = 0;
+    score = 0;
+    nextButton.textContent = "Επόμενο";
+    showQuestion();
   } else {
       showQuestion();
   }
