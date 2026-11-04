@@ -2,6 +2,31 @@
 
 const questions = [
   {
+    question: "Πόσους παίκτες έχει μία ομάδα ποδοσφαίρου μέσα στο γήπεδο;",
+    options: ["9", "10", "11", "12"],
+    answer: 2
+  },
+  {
+    question: "Σε ποια χώρα διοργανώθηκαν οι πρώτοι σύγχρονοι Ολυμπιακοί Αγώνες το 1896;",
+    options: ["Γαλλία", "Ελλάδα", "Αγγλία", "Ιταλία"],
+    answer: 1
+  },
+  {
+    question: "Πόσους πόντους αξίζει ένα τρίποντο στο μπάσκετ;",
+    options: ["2", "3", "4", "5"],
+    answer: 1
+  },
+  {
+    question: "Σε ποιο άθλημα χρησιμοποιείται ρακέτα και φτερωτή μπαλίτα;",
+    options: ["Badminton", "Τένις", "Πινγκ πονγκ", "Σκουός"],
+    answer: 0
+  },
+  {
+    question: "Ποια ομάδα της Premier League έχει το σύνθημα «You'll Never Walk Alone»;",
+    options: ["Chelsea", "Arsenal", "Liverpool", "Everton"],
+    answer: 2
+  },
+  {
     question: "Πόσοι παίκτες της ίδιας ομάδας βρίσκονται μαζί στο παρκέ σε αγώνα μπάσκετ;",
     options: ["4", "5", "6", "7"],
     answer: 1
@@ -65,14 +90,17 @@ function showQuestion() {
 
 function checkAnswer(selected) {
   const q = questions[currentQuestion];
+  const buttons = quizOptions.querySelectorAll("button");
   if (selected === q.answer) {
     quizMessage.textContent = "🎉 Μπράβο!";
+    buttons[selected].classList.add("correct");
     score = score + 1;
   } else {
-    quizMessage.textContent = "Λάθος απάντηση. Η σωστή απάντηση είναι " + q.options[q.answer] + ".";
+    quizMessage.textContent = "Λάθος απάντηση. Η σωστή απάντηση είναι η " + q.options[q.answer] + ".";
+    buttons[selected].classList.add("wrong");
+    buttons[q.answer].classList.add("correct");
   }
   quizScore.textContent = "Σκορ: " + score;
-  const buttons = quizOptions.querySelectorAll("button");
   for (let k = 0; k < buttons.length; k++) {
     buttons[k].disabled = true;
   }
