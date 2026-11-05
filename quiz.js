@@ -124,6 +124,7 @@ nextButton.addEventListener("click", function () {
     currentQuestion = 0;
     score = 0;
     nextButton.textContent = "Επόμενο";
+    randomQuestions();
     showQuestion();
   } else {
       showQuestion();
@@ -147,5 +148,16 @@ function updateQuizBest(currentScore) {
   }
 }
 
+// Τυχαία σειρά
+function randomQuestions() {
+  for (let i = questions.length -1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i+1));
+    let temp = questions[i];
+    questions[i] = questions[j];
+    questions[j] = temp;
+  }
+}
+
+randomQuestions();
 showQuestion();
 showQuizBest();
