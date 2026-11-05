@@ -53,11 +53,13 @@ const questions = [
   }
 ];
 
+// Μεταβλητές
 const quizQuestion = document.getElementById("quiz-question");
 const quizOptions = document.getElementById("quiz-options");
 const quizMessage = document.getElementById("quiz-message");
 const nextButton = document.getElementById("nextButton");
 const quizScore = document.getElementById("quiz-score");
+const quizBest = document.getElementById("quiz-best");
 
 // Εμφάνιση
 let currentQuestion = 0;
@@ -88,6 +90,7 @@ function showQuestion() {
   quizScore.textContent = "Σκορ: " + score;
 }
 
+// Τσεκ της απάντησης
 function checkAnswer(selected) {
   const q = questions[currentQuestion];
   const buttons = quizOptions.querySelectorAll("button");
@@ -107,10 +110,12 @@ function checkAnswer(selected) {
   nextButton.disabled = false;
 }
 
+// Κουμπί επόμενης ερώτησης
 nextButton.addEventListener("click", function () {
   currentQuestion = currentQuestion + 1;
   if (currentQuestion === questions.length) {
     quizQuestion.textContent = "Τέλος! Το σκορ σου: " + score + " από " + questions.length + ".";
+    updateQuizBest(score);
     nextButton.textContent = "Παίξε ξανά";
     quizOptions.innerHTML = "";
     quizMessage.textContent = "";
@@ -125,4 +130,22 @@ nextButton.addEventListener("click", function () {
   }
 });
 
+// Μεγαλύτερο σκορ
+function showQuizBest() {
+  const best = localStorage.getItem("quizBest");
+  if (best !== null) {
+    quizBest.textContent = "🏆 Καλύτερο σκορ: " + best + "!";
+  }
+}
+
+function updateQuizBest(currentScore) {
+  const saved = localStorage.getItem("quizBest");
+
+  if (saved === null || currentScore > Number(saved)) {
+    localStorage.setItem("quizBest", currentScore);
+    showQuizBest();
+  }
+}
+
 showQuestion();
+showQuizBest();
