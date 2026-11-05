@@ -94,6 +94,17 @@ input {
   color: var(--primary);
 }
 
+.clock {
+  color: var(--primary);
+  background: var(--surface);
+  border: 1px solid var(--primary);
+  border-radius: 30px;
+  padding: 10px;
+  text-align: center;
+  width: fit-content;
+  margin: 10px auto;
+}
+
 .card-grid {
   display: grid;
   gap: 12px;
