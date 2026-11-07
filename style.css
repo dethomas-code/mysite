@@ -182,7 +182,7 @@ footer {
 .button.correct {
   background-color: #008000;
   color:#000000;
-  transition: transform 0.3s, background-color 0.3s, color 0.3s;;
+  transition: transform 0.3s, background-color 0.3s, color 0.3s;
 }
 
 .button.wrong {
@@ -263,6 +263,45 @@ footer {
   gap: 20px;
 }
 
+#quiz-timer:empty {
+  display: none;
+}
+
+#quiz-timer {
+  font-size: 1.5rem;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  color: var(--primary);
+  background: var(--surface);
+  border: 1px solid var(--primary);
+  border-radius: 5px;
+  padding: 3px;
+  width: fit-content;
+  margin: 10px;
+}
+
+#quiz-timer.low-time {
+  font-size: 1.5rem;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  color: #ff0000;
+  background: var(--surface);
+  border: 1px solid #ff0000;
+  border-radius: 5px;
+  padding: 3px;
+  width: fit-content;
+  margin: 10px;
+  animation-name: pulse;
+  animation-duration: 1s;
+  animation-timing-function:ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes pulse {
+  0% {transform: scale(1, 1.1);}
+  50%  {transform: scale(1, 1);}
+  100% {transform: scale(1, 1.1);}
+}
 @keyframes myAnimation {
   0%   {transform: scale(1, 1.1);}
   50%  {transform: scale(0.75, 1);}

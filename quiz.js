@@ -57,17 +57,24 @@ const questions = [
 const quizQuestion = document.getElementById("quiz-question");
 const quizOptions = document.getElementById("quiz-options");
 const quizMessage = document.getElementById("quiz-message");
+const quizTimer = document.getElementById("quiz-timer");
 const nextButton = document.getElementById("nextButton");
+const beginButton = document.getElementById("beginButton");
 const quizScore = document.getElementById("quiz-score");
 const quizBest = document.getElementById("quiz-best");
 
 // Εμφάνιση
 let currentQuestion = 0;
 let score = 0;
+const QUESTION_TIME = 15;
+let quizTimerId = null;
+let quizTime = 0;
 
 function showQuestion() {
-
+  beginButton.hidden = true;
   const q = questions[currentQuestion];
+  quizTime = QUESTION_TIME;
+  quizTimer.classList.remove("low-time");
   quizQuestion.textContent = q.question;
   nextButton.disabled = true;
 
@@ -87,20 +94,38 @@ function showQuestion() {
     
     quizOptions.appendChild(quizAnswer);
   }
+  quizTimer.textContent = "⏳ " + quizTime;
+  clearInterval(quizTimerId);
+  const quizIdTimer  = setInterval(function () {
+    quizTime = quizTime - 1;
+    quizTimer.textContent = "⏳ " + quizTime;
+    if (quizTime <= 5 && quizTime >= 1) {
+      quizTimer.classList.add("low-time");
+    } else if (quizTime === 0) {
+      checkAnswer(-1);
+    }
+  }, 1000);
+  quizTimerId = quizIdTimer;
   quizScore.textContent = "Σκορ: " + score;
 }
 
 // Τσεκ της απάντησης
 function checkAnswer(selected) {
   const q = questions[currentQuestion];
+  clearInterval(quizTimerId);
+  quizTimerId = null;
   const buttons = quizOptions.querySelectorAll("button");
   if (selected === q.answer) {
     quizMessage.textContent = "🎉 Μπράβο!";
     buttons[selected].classList.add("correct");
     score = score + 1;
   } else {
-    quizMessage.textContent = "Λάθος απάντηση. Η σωστή απάντηση είναι η " + q.options[q.answer] + ".";
-    buttons[selected].classList.add("wrong");
+    if (selected !== -1) {
+      quizMessage.textContent = "Λάθος απάντηση. Η σωστή απάντηση είναι η " + q.options[q.answer] + ".";
+      buttons[selected].classList.add("wrong");
+    } else {
+      quizMessage.textContent = "Λάθος απάντηση. Η σωστή απάντηση είναι η " + q.options[q.answer] + ".";
+    }
     buttons[q.answer].classList.add("correct");
   }
   quizScore.textContent = "Σκορ: " + score;
@@ -115,6 +140,9 @@ nextButton.addEventListener("click", function () {
   currentQuestion = currentQuestion + 1;
   if (currentQuestion === questions.length) {
     quizQuestion.textContent = "Τέλος! Το σκορ σου: " + score + " από " + questions.length + ".";
+    clearInterval(quizTimerId);
+    quizTimerId = null;
+    quizTimer.textContent = "";
     updateQuizBest(score);
     nextButton.textContent = "Παίξε ξανά";
     quizOptions.innerHTML = "";
@@ -158,6 +186,11 @@ function randomQuestions() {
   }
 }
 
-randomQuestions();
-showQuestion();
+//Έναρξη
+beginButton.addEventListener("click", function () {
+  randomQuestions();
+  showQuestion();
+  showQuizBest();
+});
+
 showQuizBest();
