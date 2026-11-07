@@ -244,6 +244,25 @@ footer {
   animation-play-state: paused;
 }
 
+#timer-display {
+  font-size: 3rem;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  color: var(--primary);
+  background: var(--surface);
+  border: 1px solid var(--primary);
+  border-radius: 30px;
+  padding: 10px;
+  width: fit-content;
+  margin: 10px auto;
+}
+
+.timer-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
 @keyframes myAnimation {
   0%   {transform: scale(1, 1.1);}
   50%  {transform: scale(0.75, 1);}
