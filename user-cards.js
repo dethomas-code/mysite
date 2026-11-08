@@ -68,6 +68,12 @@ function addCards() {
     return;
   }
 
+  const exists = userCards.some(function (t) { return t.title.toLowerCase() === userText.toLowerCase()});
+  if (exists) {
+    msgCard.textContent = "Υπάρχει ήδη αυτός ο τίτλος.";
+    return;
+  }
+
   msgCard.textContent = "";
   userCards.push({ title: userText, text: userText2 });
   todoCardsTitle.value = "";

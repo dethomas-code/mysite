@@ -74,6 +74,12 @@ function addTask() {
     return;
   }
 
+  const exists = tasks.some(function (t) { return t.text.toLowerCase() === text.toLowerCase()});
+  if (exists) {
+    msgEl.textContent = "Υπάρχει ήδη αυτή η εργασία.";
+    return;
+  }
+
   msgEl.textContent = "";
   tasks.push({ text: text, done: false });
   todoInput.value = "";
