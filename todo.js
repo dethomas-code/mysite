@@ -1,7 +1,6 @@
 // ===== To-do list =====
 
 let tasks = [];
-let filter = "all";
 
 const todoForm = document.getElementById("todo-form");
 const todoInput = document.getElementById("todo");
@@ -34,9 +33,6 @@ function displayTasks() {
   for (let k = 0; k < order.length; k++) {
     const i = order[k];
     const t = tasks[i];
-
-    if (filter === "active" && t.done) continue;
-    if (filter === "done" && !t.done) continue;
 
     const li = document.createElement("li");
 

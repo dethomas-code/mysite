@@ -19,7 +19,7 @@ const sportsCards = [
   }
 ];
 
-const cards2 = document.getElementById("cards");
+// Μεταβλητές
 const sportsCardGrid = document.getElementById("card-grid");
 
 // Εμφάνιση
