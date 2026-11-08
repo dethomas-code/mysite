@@ -222,6 +222,10 @@ input {
   margin-top: 10px;
 }
 
+.input-checkbox {
+  width: auto;
+}
+
 #greeting {
   font-family: "Times New Roman", Times, serif;
   font-weight: bold;
