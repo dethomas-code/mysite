@@ -1,6 +1,0 @@
-
-
-.input-checkbox {
-  width: auto;
-}
-

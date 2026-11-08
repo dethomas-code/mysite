@@ -91,12 +91,12 @@ function showQuestion() {
     quizAnswer.addEventListener("click", function () {
       checkAnswer(k);
     });
-    
+
     quizOptions.appendChild(quizAnswer);
   }
   quizTimer.textContent = "⏳ " + quizTime;
   clearInterval(quizTimerId);
-  const quizIdTimer  = setInterval(function () {
+  const quizIdTimer = setInterval(function () {
     quizTime = quizTime - 1;
     quizTimer.textContent = "⏳ " + quizTime;
     if (quizTime <= 5 && quizTime >= 1) {
@@ -155,7 +155,7 @@ nextButton.addEventListener("click", function () {
     randomQuestions();
     showQuestion();
   } else {
-      showQuestion();
+    showQuestion();
   }
 });
 
@@ -178,8 +178,8 @@ function updateQuizBest(currentScore) {
 
 // Τυχαία σειρά
 function randomQuestions() {
-  for (let i = questions.length -1; i > 0; i--) {
-    let j = Math.floor(Math.random() * (i+1));
+  for (let i = questions.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
     let temp = questions[i];
     questions[i] = questions[j];
     questions[j] = temp;

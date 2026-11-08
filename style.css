@@ -24,8 +24,8 @@ body {
 }
 
 header {
-    background-color: var(--primary);
-    padding: 20px 0;
+  background-color: var(--primary);
+  padding: 20px 0;
 }
 
 h1 {
@@ -34,18 +34,21 @@ h1 {
 }
 
 main {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 16px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 16px;
 }
 
-table, td, th {
+table,
+td,
+th {
   border: 1px solid var(--border);
   border-collapse: collapse;
 }
 
-th, td {
-    padding: 8px;
+th,
+td {
+  padding: 8px;
 }
 
 th {
@@ -53,36 +56,36 @@ th {
 }
 
 img {
-    width: 80%;
-    max-width: 100%;
-    height: auto;
-    background-color: var(--surface);
-    box-shadow: 0px 10px 40px -5px rgba(0, 0, 0, 0.15);
-    border-radius: 12px;
-    margin-bottom: 25px;
-    opacity: 0.5;
-    transition: transform 0.3s, opacity 0.3s;
+  width: 80%;
+  max-width: 100%;
+  height: auto;
+  background-color: var(--surface);
+  box-shadow: 0px 10px 40px -5px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  margin-bottom: 25px;
+  opacity: 0.5;
+  transition: transform 0.3s, opacity 0.3s;
 }
 
 img:hover {
-    transform: scale(1.03);
-    opacity: 1;
+  transform: scale(1.03);
+  opacity: 1;
 }
 
 nav {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 }
 
 nav a {
-     padding: 0 8px;
-     color: white;
-     text-decoration: none;
+  padding: 0 8px;
+  color: white;
+  text-decoration: none;
 }
 
 nav a:hover {
-    color: var(--accent);
+  color: var(--accent);
 }
 
 p a:hover {
@@ -139,8 +142,8 @@ input {
 }
 
 footer {
-    text-align: center;
-    margin-top: 25px;
+  text-align: center;
+  margin-top: 25px;
 }
 
 .button {
@@ -158,9 +161,9 @@ footer {
 }
 
 .button:hover:not(:disabled) {
-    background-color: var(--bg);
-    color: var(--primary);
-    border: 2px solid var(--primary);
+  background-color: var(--bg);
+  color: var(--primary);
+  border: 2px solid var(--primary);
 }
 
 .deletebutton {
@@ -181,7 +184,7 @@ footer {
 
 .button.correct {
   background-color: #008000;
-  color:#000000;
+  color: #000000;
   transition: transform 0.3s, background-color 0.3s, color 0.3s;
 }
 
@@ -194,7 +197,8 @@ footer {
   opacity: 0.7;
 }
 
-#todocards2, #todocards {
+#todocards2,
+#todocards {
   width: 70%;
   padding: 12px;
   margin: 10px 0;
@@ -206,7 +210,8 @@ footer {
   margin-bottom: 10px;
 }
 
-#todo-cards textarea, input {
+#todo-cards textarea,
+input {
   width: 100%;
   box-sizing: border-box;
   resize: vertical;
@@ -230,7 +235,7 @@ footer {
   box-shadow: 5px 5px 8px blue, 10px 10px 8px red, 15px 15px 8px green;
   animation-name: myAnimation;
   animation-duration: 1s;
-  animation-timing-function:ease-in-out;
+  animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
 }
 
@@ -288,19 +293,36 @@ footer {
   margin: 10px;
   animation-name: pulse;
   animation-duration: 1s;
-  animation-timing-function:ease-in-out;
+  animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
 }
 
 @keyframes pulse {
-  0% {transform: scale(1, 1.1);}
-  50%  {transform: scale(1, 1);}
-  100% {transform: scale(1, 1.1);}
+  0% {
+    transform: scale(1, 1.1);
+  }
+
+  50% {
+    transform: scale(1, 1);
+  }
+
+  100% {
+    transform: scale(1, 1.1);
+  }
 }
+
 @keyframes myAnimation {
-  0%   {transform: scale(1, 1.1);}
-  50%  {transform: scale(0.75, 1);}
-  100% {transform: scale(1, 1.1);}
+  0% {
+    transform: scale(1, 1.1);
+  }
+
+  50% {
+    transform: scale(0.75, 1);
+  }
+
+  100% {
+    transform: scale(1, 1.1);
+  }
 }
 
 @media (max-width: 600px) {

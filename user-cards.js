@@ -69,7 +69,7 @@ function addCards() {
   }
 
   msgCard.textContent = "";
-  userCards.push({ title: userText, text: userText2});
+  userCards.push({ title: userText, text: userText2 });
   todoCardsTitle.value = "";
   todoCardsText.value = "";
   saveCards();
