@@ -33,6 +33,10 @@ h1 {
   color: var(--bg);
 }
 
+h2 {
+  text-decoration-line: underline;
+}
+
 main {
   max-width: 800px;
   margin: 0 auto;
